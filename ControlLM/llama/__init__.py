@@ -161,7 +161,7 @@ def get_model(model_name='meta-llama/Llama-2-7b-chat-hf',control_activate_name=N
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_name,
                 load_in_8bit=True,
-            ).half().cuda()
+            ).cuda()
             self.device = self.model.device
 
             for i, layer in enumerate(self.model.model.layers):
