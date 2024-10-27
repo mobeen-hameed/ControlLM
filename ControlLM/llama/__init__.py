@@ -162,7 +162,7 @@ def get_model(model_name='meta-llama/Llama-2-7b-chat-hf',control_activate_name=N
                 model_name,
                 load_in_8bit=load_in_8bit,
                 load_in_4bit=load_in_4bit,
-            ).cuda()
+            )
             self.device = self.model.device
 
             for i, layer in enumerate(self.model.model.layers):
