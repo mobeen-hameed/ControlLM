@@ -154,11 +154,13 @@ def get_model(model_name='meta-llama/Llama-2-7b-chat-hf',control_activate_name=N
     class LlamaControlLM:
         def __init__(self):
 
+
             self.tokenizer = AutoTokenizer.from_pretrained(
                 model_name
             )
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_name,
+                load_in_8bit=True,
             ).half().cuda()
             self.device = self.model.device
 
