@@ -42,7 +42,7 @@ import matplotlib
 
 
 
-def get_model(model_name='meta-llama/Llama-2-7b-chat-hf',control_activate_name=None,control_layer=None,gamma=None, load_in_8bit=False, load_in_4bit=False):
+def get_model(model_name='meta-llama/Llama-2-7b-chat-hf',control_activate_name=None,control_layer=None,gamma=None):
 
     def add_vector_after_position(matrix, vector, position_ids, after=None):
         after_id = after
@@ -160,8 +160,7 @@ def get_model(model_name='meta-llama/Llama-2-7b-chat-hf',control_activate_name=N
             )
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_name,
-                load_in_8bit=load_in_8bit,
-                load_in_4bit=load_in_4bit,
+                load_in_4bit=True,
             )
             self.device = self.model.device
 
